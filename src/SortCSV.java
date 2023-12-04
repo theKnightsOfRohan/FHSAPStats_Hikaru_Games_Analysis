@@ -9,7 +9,7 @@ public class SortCSV {
 
 	}
 
-	private static void printCSV(String[][] data) {
+	public static void printCSV(String[][] data) {
 		for (int i = 0; i < data.length; i++) {
 			for (int j = 0; j < data[i].length; j++) {
 				System.out.print(data[i][j] + "\t");
