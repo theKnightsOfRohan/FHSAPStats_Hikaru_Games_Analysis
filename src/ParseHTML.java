@@ -14,13 +14,19 @@ import java.util.List;
 
 public class ParseHTML {
 	public static void main(String[] args) {
+		// Read the HTML into a string (text)
 		String html = readFileByLine("tableData.html");
 		System.out.println("HTML Read!");
 		System.out.println("HTML size: " + html.length());
 
+		// Use JSoup to parse the HTML
 		Document doc = Jsoup.parse(html);
 		System.out.println("HTML parsed!");
 
+		// This looks scary, but all I'm doing is
+		// going through the HTML and saving all
+		// of the text that isn't whitespace or HTML
+		// code
 		List<String> data = new ArrayList<>();
 		doc.traverse(new NodeVisitor() {
 			public void head(Node node, int depth) {
@@ -40,6 +46,7 @@ public class ParseHTML {
 
 		System.out.println("Data size: " + data.size());
 
+		// Write the data to a CSV file
 		writeSingleToCSV(data);
 	}
 

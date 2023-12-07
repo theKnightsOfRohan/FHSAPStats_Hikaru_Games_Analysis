@@ -7,6 +7,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CleanCSV {
+	// Basically, just filter out all of the rows that don't have 15 columns
+	// because that amount of columns seemed to be the most common
+	// and the most consistent
 	public static void main(String[] args) {
 		List<String[]> data = new ArrayList<>();
 		try (BufferedReader reader = new BufferedReader(new FileReader("tableData.csv"))) {
